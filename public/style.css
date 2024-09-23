@@ -1,25 +1,160 @@
-/* a minimalist set of CSS resets */
-
-/* default to border-box */
 html {
-  box-sizing: border-box;
-  font-size: 16px;
+  height: 100%;
+  width: 100%;
+  font-family: arial;
+  margin: 0;
+  padding: 0;
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
+/* style for the navigation bar */
+header {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 100px;
+  background: black;
+  position: fixed;
+  top: 0;
 }
 
-/* adjust typography defaults */
-body {
-  margin: 1rem;
-  font-family: sans-serif;
-  line-height: 1.5;
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 10px
+}
+nav a:hover, nav a:active {
+  color: yellow;
 }
 
-/* images and videos max out at full width */
-img,
-video {
-  height: auto;
-  max-width: 100%;
+
+/* for the body of the webpages */
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+h1, h2, h3 {
+  text-align: center;
+  color: gold;
+  font-size: 3em;
+}
+fieldset, section {
+  width: 50%;  
+  margin: 10px auto;
+  padding: 10px;
+}
+
+legend {
+  background: black;
+  color: cornsilk;
+  text-align: center;
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.content-container {
+  width: 30%;
+}
+
+content-container p {
+  text-align: justify;
+  font-size: 2.5em;
+}
+
+
+label {
+  margin-bottom: 10px;
+  color: blue;
+  font-weight: bold;
+}
+input {
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+select {
+  padding: 10px
+}
+
+button {
+  padding: 10px;
+  background-color: lightpurple
+}
+
+.login-container button, .welcome button {
+  background-color: lightblue;
+  width: 100%;
+}
+
+.welcome {
+  width: 80%;
+  margin: 100px auto;
+  text-align: center;
+}
+
+#btns {
+  text-align: right
+}
+
+div {
+  border: 1px solid black;
+}
+
+#errmess {
+  font-size: 0.5em;
+  color: blue;
+}
+
+span {
+  color: blue;
+}
+.output-container {
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  padding: 10px;
+  position: relative;
+}
+
+/* for copyright notice */
+footer {
+  background: black;
+  color: white;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+footer p {
+  text-align: right;
+  margin-right: 20px;
+}
+
+#listOfSongs {
+   width: 20%;
+   position: absolute;
+   top: 70px;
+   right: 10px;
+   border:2px solid black;
+   border-radius: 20px;
+   overflow: auto;
+   background-color: lightgray;
+}
+
+ul {
+  list-style-type: none;
+}
+li:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+/* removes list of songs when device gets smaller or screen is zoomed in */
+@media screen and (max-width: 700px) {
+  #listOfSongs {
+    display: none;
+  }
 }
