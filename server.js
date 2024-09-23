@@ -121,7 +121,3 @@ app.get('/delTitle', (req, res) => {
 // Step 5: Start HTTP Server on a port number 3000
 const port = 3000;
 app.listen(port, () => console.log(`App listening to port ${port}`));
-
-
-
-{}
