@@ -40,86 +40,83 @@ to this section's matching END comment to see page-specific styles.
     format("opentype");
 }
 
-/* Our remix on glitch button */
-.btn--remix {
-  font-family: HK Grotesk;
-  padding: 0.75rem 1rem;
-  font-size: 1.1rem;
-  line-height: 1rem;
-  font-weight: 500;
-  height: 2.75rem;
+
+/* for the body of the webpages */
+main {
+  display: flex;
   align-items: center;
-  cursor: pointer;
-  background: #FFFFFF;
-  border: 1px solid #000000;
-  box-sizing: border-box;
-  border-radius: 4px;
-  text-decoration: none;
-  color: #000;
-  white-space: nowrap;
-  margin-left: auto;
+  justify-content: center;
+  height: 100vh;
 }
-.btn--remix img {
-  margin-right: 0.5rem;
+h1, h2, h3 {
+  text-align: center;
+  color: gold;
+  font-size: 3em;
 }
-.btn--remix:hover {
-  background-color: #D0FFF1;
+fieldset, section {
+  width: 50%;  
+  margin: 10px auto;
+  padding: 10px;
 }
 
-/* Navigation grid */
-.footer {
-  display: flex;
-  justify-content: space-between;
-  margin: 1rem auto 0;
-  padding: 1rem 0 0.75rem 0;
+legend {
+  background: black;
+  color: cornsilk;
+  text-align: center;
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.content-container {
+  width: 30%;
+}
+
+content-container p {
+  text-align: justify;
+  font-size: 2.5em;
+}
+
+
+label {
+  margin-bottom: 10px;
+  color: blue;
+  font-weight: bold;
+}
+input {
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+select {
+  padding: 10px
+}
+
+button {
+  padding: 10px;
+  background-color: lightpurple
+}
+
+.login-container button, .welcome button {
+  background-color: lightblue;
   width: 100%;
-  flex-wrap: wrap;
-  border-top: 4px solid #fff;
 }
 
-.footer a:not(.btn--remix):link,
-a:not(.btn--remix):visited {
-  font-family: HK Grotesk;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.1rem;
-  color: #000;
-  text-decoration: none;
-  border-style: none;
-}
-.footer a:hover {
-  background: var(--color-primary);
+.welcome {
+  width: 80%;
+  margin: 100px auto;
+  text-align: center;
 }
 
-.footer .links {
-  padding: 0.5rem 1rem 1.5rem;
-  white-space: nowrap;
+#btns {
+  text-align: right
 }
 
-.divider {
-  padding: 0 1rem;
-}
-/******************************************************************************
-END Glitch hello-app default styles
-******************************************************************************/
-
-body {
-  font-family: HK Grotesk;
-  background-color: var(--color-bg);
-}
-
-/* Page structure */
-.wrapper {
-  min-height: var(--wrapper-height);
-  display: grid;
-  place-items: center;
-  margin: 0 1rem;
-}
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  justify-content: left;
+div {
+  border: 1px solid black;
 }
 
 p {
@@ -138,38 +135,35 @@ p {
   margin: 2rem 0 0;
 }
 
-/* Very light scaling for our illustration */
-.illo-container {
-  display: flex;
-  justify-content: flex-end;
+/* for copyright notice */
+footer {
+  background: black;
+  color: white;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
 }
-.illustration {
-  max-width: 100%;
-  max-height: 150px;
-  margin-top: 1rem;
+footer p {
+  text-align: right;
+  margin-right: 20px;
 }
 
-/* Styles for our custom color form and its results */
-.color-info {
-  margin-left: 5px;
+#listOfSongs {
+   width: 20%;
+   position: absolute;
+   top: 70px;
+   right: 10px;
+   border:2px solid black;
+   border-radius: 20px;
+   overflow: auto;
+   background-color: lightgray;
 }
-.color-search {
-  margin-top: 3rem;
+
+ul {
+  list-style-type: none;
 }
-.color-form {
-  width: 90%;
-  max-width: 500px;
-  margin-left: 5px;
-}
-.color-form a:not(.btn--remix) {
-  font-weight: bold;
-  color: var(--color-text-main);
-  margin-top: 8px;
-}
-.color-form button {
-  margin-top: 8px;
-}
-.color-form button:hover {
+li:hover {
+  color: blue;
   cursor: pointer;
   box-shadow: -8px 4px 20px #9BE7D8;
 }

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Listen to Music</title>
+    <meta charset="utf-8">
+    <meta name="author" content="ATLMendoza">
+    <meta name="description" content="Listen To Music from the Music Museum">
+    <meta name="keywords" content="Music Museum, node.js, express, localStorage, route binding, get, post">
+    <meta name="revised" content="04/20/2024"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://cdn.glitch.global/3723d3ca-867e-4bf2-bd7d-fcb84d6f4067/music.ico?v=1727085204604" type="images/ico" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="/"> Home </a>
+        <a href="/share"> Share </a>
+        <a href="/listen"> Listen </a>
+      </nav>
+    </header>
+    <h1 style="margin-top: 50px"> </h1>
+    <form  
+      action = "/listen"
+      method = "post"
+      nohistory
+    >
+      <fieldset style="text-align: center">
+          <legend>Music Details</legend>
+  
+          <!-- input type radio creates choices and user can select only one -->
+          <label for="title">Title:</label>
+          <input 
+            type="text"
+            id="title" 
+            name="title" 
+            size="40%"
+            onfocus="toFocus(this)" 
+            onblur="toBlur(this)"
+            required
+          >
+         <button type="submit"> Search </button> <br/>
+         <p id="errmess"> {{notFound}}</p>
+      </fieldset>
+    </form>
+    <section class="output-container">
+        
+      <h2> Selected Song</h2>
+      <section style="display:flex; text-align: center">
+        <form 
+          action = "/delTitle"
+          method = "get"
+          nohistory
+        >
+          <input 
+            type="hidden"
+            id="title1" 
+            name="title" 
+            value={{theValue.title}}
+          >
+          <button> Remove from Music Museum? </button>
+        </form>
+        <form  
+          action = "/share"
+          method = "get"
+          nohistory
+        >
+          <input 
+            type="hidden"
+            id="title2" 
+            name="title" 
+            value={{theValue.title}}
+          >
+          <button> Update Music information </button>
+        </form>
+      </section>
+      <p> Title : <span id="title">{{theValue.title}}</span>
+      </p>
+      
+      <p> Genre : <span> {{theValue.genre}}</span></p>
+      <p> Artists Name : <span> {{theValue.artist}}</span></p> 
+      <p> Lyrics By : <span> {{theValue.lyrics}}</span></p> 
+      <iframe width="560" height="315" src='{{theValue.youtube}}'>
+      </iframe>
+      <p> Lyrics By : <br/><span> {{theValue.lyricsong}}</span></p> 
+    </section>
+    <section id="listOfSongs">
+       <p><a href="listOfSongs"><button style="width:100%">See List of Songs</button></a></p>
+       <ul id="dList"></ul>
+    </section>
+    <footer>
+      <p>Copyright &copy; ALMendoza 2024 </p>
+    </footer>
+
+    <script>
+
+      // executed right away when this page listen.hbs gets loaded on the client's browser
+      let list = '{{songList}}' // list of songs contructed in index.js
+      let s = "";
+      // construct the list of songs to be displayed
+      if (list.length > 0) {
+        list = list.split(",");
+        for (i=0; i<list.length; i++) {
+          dValue = list[i]
+          s += "<li onclick='assignValue(this.innerHTML)' style='list-style-type:square'>" + list[i] + "</li>";
+
+        }
+
+        // show actual list and then number of songs read
+        s += `<li style="text-align:right; color: blue; font-size: 0.75em"> 
+              #of Songs: ${list.length} </li>`
+        dList.innerHTML = s;
+      }
+
+      // called when a user clicks on a title from the list of song
+      function assignValue(dValue) {
+         document.getElementById("title").value = dValue;
+      }
+      
+    </script>
+    <script src="script.js">   
+    </script>
+</body>
+  
+</html>
